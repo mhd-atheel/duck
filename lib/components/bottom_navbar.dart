@@ -1,5 +1,7 @@
+import 'package:duck/chat_screen/chat_view.dart';
 import 'package:duck/global_colors.dart';
 import 'package:duck/home_screen/home_view.dart';
+import 'package:duck/peoples_screen/people_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -28,9 +30,9 @@ class _BottomNavbarState extends State<BottomNavbar> {
       index: currentIndex,
       children: const [
         HomeView(),
+        PeopleView(),
         HomeView(),
-        HomeView(),
-        HomeView(),
+        ChatView(),
         HomeView(),
       ],
     );

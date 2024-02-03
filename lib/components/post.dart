@@ -18,7 +18,7 @@ class _PostState extends State<Post> {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
 
-    return Container(
+    return SizedBox(
       width:width,
       // margin: const EdgeInsets.symmetric(horizontal: 15),
 
