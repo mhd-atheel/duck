@@ -1,3 +1,4 @@
+import 'package:duck/chat_screen/single_chat_view.dart';
 import 'package:flutter/material.dart';
 
 import '../global_colors.dart';
@@ -69,45 +70,51 @@ class ChatView extends StatelessWidget {
                 itemBuilder:(context,index){
                   return Column(
                     children: [
-                      ListTile(
-                        horizontalTitleGap: 15,
-                        minLeadingWidth: 0,
-                        titleAlignment: ListTileTitleAlignment.center,
-                        minVerticalPadding: 0, // else 2px still present
-                        dense: true, // else 2px still present
-                        visualDensity: VisualDensity.compact, // Else theme will be use
-                        contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
-                        leading: ClipRRect(
-                          borderRadius: BorderRadius.circular(22),
-                          child: SizedBox.fromSize(
-                            size: const Size.fromRadius(22),
-                            child: Image.asset('assets/images/profile2.png'),
+                      GestureDetector(
+                        onTap: (){
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (context) =>  SingleChatView()));
+                        },
+                        child: ListTile(
+                          horizontalTitleGap: 15,
+                          minLeadingWidth: 0,
+                          titleAlignment: ListTileTitleAlignment.center,
+                          minVerticalPadding: 0, // else 2px still present
+                          dense: true, // else 2px still present
+                          visualDensity: VisualDensity.compact, // Else theme will be use
+                          contentPadding: const EdgeInsets.symmetric(horizontal: 15, vertical: 0),
+                          leading: ClipRRect(
+                            borderRadius: BorderRadius.circular(22),
+                            child: SizedBox.fromSize(
+                              size: const Size.fromRadius(22),
+                              child: Image.asset('assets/images/profile2.png'),
+                            ),
                           ),
-                        ),
-                        title: Text(
-                          'Sai Pallavi',
-                          style: TextStyle(
-                              fontSize: 15,
-                              color: GlobalColor.blackBold
+                          title: Text(
+                            'Sai Pallavi',
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: GlobalColor.blackBold
+                            ),
                           ),
-                        ),
-                        subtitle: Text(
-                          'How about you ?',
-                          style: TextStyle(
-                              fontSize: 12,
-                              color: GlobalColor.blackNormal,
-                              fontWeight:FontWeight.w100
+                          subtitle: Text(
+                            'How about you ?',
+                            style: TextStyle(
+                                fontSize: 12,
+                                color: GlobalColor.blackNormal,
+                                fontWeight:FontWeight.w100
+                            ),
                           ),
-                        ),
-                        trailing: CircleAvatar(
-                          radius: 10,
-                          backgroundColor: GlobalColor.mainColor,
-                          child: const Center(
-                              child: Text('5',style: TextStyle(
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white
-                              ),)
+                          trailing: CircleAvatar(
+                            radius: 10,
+                            backgroundColor: GlobalColor.mainColor,
+                            child: const Center(
+                                child: Text('5',style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white
+                                ),)
+                            ),
                           ),
                         ),
                       ),
