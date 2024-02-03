@@ -24,35 +24,46 @@ class HomeView extends StatelessWidget {
           )
         ],
       ),
-      body:  Column(
-        children: [
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 8),
-            child: Container(
-              padding:const EdgeInsets.symmetric(horizontal: 20),
-              height: 50,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                color: const Color(0xffF7F8F9),
-                border: Border.all(
-                  color: const Color(0xffE8ECF4),
+      body:  SingleChildScrollView(
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0,vertical: 8),
+              child: Container(
+                padding:const EdgeInsets.symmetric(horizontal: 20),
+                height: 50,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: const Color(0xffF7F8F9),
+                  border: Border.all(
+                    color: const Color(0xffE8ECF4),
+                  ),
+                  borderRadius: BorderRadius.circular(15)
                 ),
-                borderRadius: BorderRadius.circular(15)
-              ),
-              child: TextFormField(
-                decoration: const InputDecoration(
-                  border: InputBorder.none,
-                  hintText: 'What’s on your mind',
-                  hintStyle: TextStyle(
-                    color: Color(0xff8391A1),
-                    fontSize: 15
-                  )
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    border: InputBorder.none,
+                    hintText: 'What’s on your mind',
+                    hintStyle: TextStyle(
+                      color: Color(0xff8391A1),
+                      fontSize: 15
+                    )
+                  ),
                 ),
               ),
             ),
-          ),
-          const Post()
-        ],
+            const Post(
+              image: 'assets/images/post.png',
+              profile: 'assets/images/profile.png',
+              name: 'Kokki Kumar',
+            ),
+            const Post(
+              image: 'assets/images/post.png',
+              profile: 'assets/images/profile2.png',
+              name: 'Pallavi',
+            )
+          ],
+        ),
       ),
     );
   }
