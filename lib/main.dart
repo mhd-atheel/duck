@@ -1,5 +1,6 @@
 import 'package:duck/components/bottom_navbar.dart';
 import 'package:duck/home_screen/home_view.dart';
+import 'package:duck/splash_screen/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
 
     return baseTheme.copyWith(
       textTheme: GoogleFonts.poppinsTextTheme(baseTheme.textTheme),
+      scaffoldBackgroundColor: Colors.white,
     );
   }
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme:  _buildTheme(Brightness.light),
-      home: const BottomNavbar(),
+      home: const SplashView(),
     );
   }
 }
