@@ -2,7 +2,11 @@ import 'package:duck/global_colors.dart';
 import 'package:flutter/material.dart';
 
 class Post extends StatefulWidget {
-  const Post({super.key});
+  final String image;
+  final String profile;
+  final String name;
+
+  const Post({super.key, required this.image, required this.profile, required this.name});
 
   @override
   State<Post> createState() => _PostState();
@@ -25,11 +29,11 @@ class _PostState extends State<Post> {
               borderRadius: BorderRadius.circular(22),
               child: SizedBox.fromSize(
                 size: const Size.fromRadius(22),
-                child: Image.asset('assets/images/profile.png'),
+                child: Image.asset(widget.profile),
               ),
             ),
             title: Text(
-              'Kokki Kumar',
+              widget.name,
               style: TextStyle(
                 fontSize: 15,
                 color: GlobalColor.blackBold
@@ -43,13 +47,61 @@ class _PostState extends State<Post> {
                 fontWeight:FontWeight.w300
               ),
             ),
+            trailing: const Icon(Icons.more_vert_outlined),
           ),
           Padding(
             padding:EdgeInsets.symmetric(horizontal: width *0.045),
+            child: Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    'There are many variations of '
+                        'passages of Lorem Ipsum available',
+                    style: TextStyle(
+                        fontSize: 13,
+                        color: GlobalColor.blackNormal,
+                        fontWeight:FontWeight.w300
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          SizedBox(height: height *0.01,),
+          Padding(
+            padding:EdgeInsets.symmetric(horizontal: width *0.045),
             child: Image.asset(
-              'assets/images/post.png',
+              widget.image,
               width: width,
               fit: BoxFit.contain,
+            ),
+          ),
+          SizedBox(height: height *0.005,),
+          Padding(
+            padding:EdgeInsets.symmetric(horizontal: width *0.045),
+            child: Row(
+              children: [
+                Image.asset('assets/icons/liked.png',
+                  height: 22,
+                  width: 22,
+                ),
+                SizedBox(width: width *0.02,),
+                Text(
+                  '1645',
+                  style: TextStyle(
+                      fontSize: 16,
+                      color: GlobalColor.blackBold
+                  ),
+                ),
+                SizedBox(width: width *0.05,),
+                Text(
+                  '12 Comments',
+                  style: TextStyle(
+                      fontSize: 15,
+                      color: GlobalColor.blackBold
+                  ),
+                ),
+              ],
             ),
           )
         ],

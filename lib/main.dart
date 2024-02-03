@@ -1,3 +1,4 @@
+import 'package:duck/components/bottom_navbar.dart';
 import 'package:duck/home_screen/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme:  _buildTheme(Brightness.light),
-      home: const HomeView(),
+      home: const BottomNavbar(),
     );
   }
 }
