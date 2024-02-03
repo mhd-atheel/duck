@@ -76,7 +76,7 @@ class _PostState extends State<Post> {
               fit: BoxFit.contain,
             ),
           ),
-          SizedBox(height: height *0.005,),
+          SizedBox(height: height *0.01,),
           Padding(
             padding:EdgeInsets.symmetric(horizontal: width *0.045),
             child: Row(
