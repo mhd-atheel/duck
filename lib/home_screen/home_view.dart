@@ -80,7 +80,6 @@ class HomeView extends StatelessWidget {
                 )
               ],
             ),
-
             const Post(
               image: 'assets/images/post.png',
               profile: 'assets/images/profile.png',
