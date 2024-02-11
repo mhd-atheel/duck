@@ -3,6 +3,7 @@ import 'package:duck/create_post_screen/create_post_view.dart';
 import 'package:duck/global_colors.dart';
 import 'package:duck/home_screen/home_view.dart';
 import 'package:duck/peoples_screen/people_view.dart';
+import 'package:duck/profile_screen/profile_view.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbar extends StatefulWidget {
@@ -32,7 +33,7 @@ class _BottomNavbarState extends State<BottomNavbar> {
         PeopleView(),
         CreatePostView(),
         ChatView(),
-        HomeView(),
+        ProfileView(),
       ],
     );
   }
