@@ -72,7 +72,7 @@ class SingleChatView extends StatelessWidget {
           ),
         ),
         title: Text(
-          'Saliya',
+          'Sai Pallavi',
           style: TextStyle(
               color: GlobalColor.blackBold,
               fontWeight: FontWeight.w500,

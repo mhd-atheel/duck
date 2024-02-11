@@ -1,4 +1,5 @@
 import 'package:duck/chat_screen/chat_view.dart';
+import 'package:duck/create_post_screen/create_post_view.dart';
 import 'package:duck/global_colors.dart';
 import 'package:duck/home_screen/home_view.dart';
 import 'package:duck/peoples_screen/people_view.dart';
@@ -23,15 +24,13 @@ class _BottomNavbarState extends State<BottomNavbar> {
   }
 
   Widget _buildPageContent() {
-    // Implement the content of each tab based on the selected index (_currentIndex)
-    // You can use a widget like IndexedStack or a Navigator with multiple pages
-    // Here's an example using IndexedStack:
+
     return IndexedStack(
       index: currentIndex,
       children: const [
         HomeView(),
         PeopleView(),
-        HomeView(),
+        CreatePostView(),
         ChatView(),
         HomeView(),
       ],
