@@ -1,15 +1,14 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:image_picker/image_picker.dart';
 
-class CreatePostController {
+class CreatePostController extends  ChangeNotifier{
 
   final imagePicker = ImagePicker();
-  static File? _image;
+  File? image;
 
-  final counterStateProvider = StateProvider<int>((ref) =>10
-  );
 
 
 
@@ -17,10 +16,18 @@ class CreatePostController {
     final pick = await imagePicker.pickImage(source: ImageSource.gallery);
 
       if (pick != null) {
-        _image = File(pick.path);
-        print(_image);
+        image = File(pick.path);
+        notifyListeners();
+
+        print(image);
       }
 
   }
+
+  void closeGalleryImage (){
+     image = null;
+     notifyListeners();
+  }
+
 
 }

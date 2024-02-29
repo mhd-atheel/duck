@@ -1,4 +1,5 @@
 import 'package:duck/create_post_screen/create_post_controller.dart';
+import 'package:duck/initializeProviders.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -9,7 +10,7 @@ class CreatePostView extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context , WidgetRef ref) {
-    final value = ref.watch(CreatePostController().counterStateProvider);
+    CreatePostController createPostController = ref.watch(createPostControllerProvider);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -26,12 +27,19 @@ class CreatePostView extends ConsumerWidget {
 
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text(value.toString()),
-
+          const Center(child: Text('hello')),
+          createPostController.image != null ?
+              Image.file(createPostController.image!):
+              Image.asset('assets/images/profile.png')
+          ,
           ElevatedButton(onPressed: (){
-            CreatePostController().imagePickerMethod();
-          }, child:const Text("Image"))
+             createPostController.imagePickerMethod();
+          }, child:const Text("Image")),
+          ElevatedButton(onPressed: (){
+            createPostController.closeGalleryImage();
+          }, child:const Text("Close"))
 
         ],
       ),
