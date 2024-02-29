@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1046630909949",
+    "project_id": "duck-3e1bf",
+    "storage_bucket": "duck-3e1bf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046630909949:android:0819b8a458b317b73cfb94",
+        "android_client_info": {
+          "package_name": "com.example.duck"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBM1-QCmXWG6lkJcT8GqiR5SBs1FcdLiVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
