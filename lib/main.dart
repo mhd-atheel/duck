@@ -1,3 +1,4 @@
+import 'package:duck/auth_screen/auth_view.dart';
 import 'package:duck/components/bottom_navbar.dart';
 import 'package:duck/home_screen/home_view.dart';
 import 'package:duck/splash_screen/splash_view.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme:  _buildTheme(Brightness.light),
-      home: const SplashView(),
+      home: const AuthView(),
     );
   }
 }
