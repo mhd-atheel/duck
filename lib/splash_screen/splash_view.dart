@@ -1,3 +1,5 @@
+import 'package:delightful_toast/delight_toast.dart';
+import 'package:delightful_toast/toast/components/toast_card.dart';
 import 'package:duck/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -46,7 +48,7 @@ class _SplashViewState extends State<SplashView> {
                 fontSize: 25),
           ),
           Text(
-            'cheems ready to connect with duck',
+            'Cheems ready to connect with duck',
             style: TextStyle(
                 color: GlobalColor.blackNormal,
                 fontWeight: FontWeight.w200,
