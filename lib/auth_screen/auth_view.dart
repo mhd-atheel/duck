@@ -49,6 +49,7 @@ class AuthView extends ConsumerWidget {
                       borderRadius: BorderRadius.circular(15)
                   ),
                   child: TextFormField(
+                    controller: authController.nameController,
                     decoration: const InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Name',
@@ -73,6 +74,7 @@ class AuthView extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(15)
                 ),
                 child: TextFormField(
+                  controller: authController.emailController,
                   decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Email',
@@ -97,6 +99,7 @@ class AuthView extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(15)
                 ),
                 child: TextFormField(
+                  controller: authController.passwordController,
                   decoration: const InputDecoration(
                       border: InputBorder.none,
                       hintText: 'Password',
@@ -141,20 +144,32 @@ class AuthView extends ConsumerWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 20.0,top: 20,bottom: 0,right: 20),
-              child: Container(
-                height: 50,
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                    color:  GlobalColor.mainColor,
-                    borderRadius: BorderRadius.circular(8)
-                ),
-                child:  Center(
-                  child: Text(
+              child: GestureDetector(
+                onTap: (){
+                  authController.currentStatus(context);
+                },
+                child: Container(
+                  height: 50,
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                      color:  GlobalColor.mainColor,
+                      borderRadius: BorderRadius.circular(8)
+                  ),
+                  child:  Center(
+                    child: authController.isLoading ==false?
+                    Text(
                       authController.isLogin?'Login':"Register",
-                    style: const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.w500,
-                        color:Colors.white
+                      style: const TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                          color:Colors.white
+                      ),
+                    ):const SizedBox(
+                      height: 30.0,
+                      width: 30.0,
+                      child: CircularProgressIndicator(
+                        color: Colors.white,
+                      ),
                     ),
                   ),
                 ),
