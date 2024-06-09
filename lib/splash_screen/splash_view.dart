@@ -1,5 +1,4 @@
-import 'package:delightful_toast/delight_toast.dart';
-import 'package:delightful_toast/toast/components/toast_card.dart';
+
 import 'package:duck/components/bottom_navbar.dart';
 import 'package:flutter/material.dart';
 
