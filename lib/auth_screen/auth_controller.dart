@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:toastification/toastification.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../components/bottom_navbar.dart';
 import '../services/utils.dart';
 
 class AuthController extends ChangeNotifier {
@@ -35,8 +37,14 @@ class AuthController extends ChangeNotifier {
         await firebaseAuth.signInWithEmailAndPassword(
             email: emailController.text,
             password: passwordController.text
-        ).then((value){
+        ).then((value) async {
+          final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
+          fireStore.collection("Users").doc(value.user!.uid).update({
+            'fcmToken': apnsToken
+          });
           Utils.customSnackBar(context,"Login Success",ToastificationType.success);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const BottomNavbar()));
           isLoading = false;
           notifyListeners();
         });
@@ -62,16 +70,20 @@ class AuthController extends ChangeNotifier {
         await firebaseAuth.createUserWithEmailAndPassword(
             email: emailController.text,
             password: passwordController.text
-        ).then((value){
+        ).then((value) async {
+          final apnsToken = await FirebaseMessaging.instance.getAPNSToken();
           fireStore.collection("Users").doc(value.user!.uid).set(
             {
               'name': nameController.text,
               'email': emailController.text,
               'password': passwordController.text,
               'userId': value.user!.uid,
+              'fcmToken': apnsToken,
             }
           );
           Utils.customSnackBar(context,"Register Success",ToastificationType.success);
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const BottomNavbar()));
           isLoading = false;
           notifyListeners();
         });
